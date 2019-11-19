@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { JarwisService } from 'src/app/services/jarwis.service';
+import { TokenService } from 'src/app/services/token.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -6,9 +10,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
+  public form = {
+    email:null,
+    password:null
+  };
 
-  constructor() { }
+  public error = null;
 
+  constructor(
+    private Jarwis:JarwisService,
+    private Token:TokenService,
+    private route:Router,
+    private Auth: AuthService
+    ) { }
+
+  onSubmit(){
+    this.Jarwis.login(this.form).subscribe(
+      data => this.handleResponse(data),
+      error => this.handleError(error)
+    );
+  }
+
+  handleResponse(data){
+    this.Token.handle(data.access_token);
+    this.Auth.changeAuthStatus(true);
+    this.route.navigateByUrl('/panelAdmin');
+
+  }
+
+  handleError(error){
+    this.error = error.error.error;
+  }
   ngOnInit() {
   }
 

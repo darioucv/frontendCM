@@ -1,6 +1,7 @@
 <nav>
     <ul>
-        <li><a href="">Navbar</a></li>
-        <li><a routerLink="login">Login</a></li>
+        <li><a href="" >Navbar</a></li>
+        <li *ngIf=!loggedIn><a routerLink="login" >Login</a></li>
+        <li><a href="#" (click)="logout($event)" *ngIf=loggedIn>Logout</a></li>
     </ul>
 </nav>
