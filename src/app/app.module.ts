@@ -13,13 +13,29 @@ import { TokenService } from './services/token.service';
 import { AuthService } from './services/auth.service';
 import { AfterLoginService } from './services/after-login.service';
 import { BeforeLoginService } from './services/before-login.service';
+import { InformacionbasicaComponent } from './admincomponents/edit/informacionbasica/informacionbasica.component';
+import { ServicioComponent } from './admincomponents/edit/servicio/servicio.component';
+import { TiposervicioComponent } from './admincomponents/edit/tiposervicio/tiposervicio.component';
+import { CategoriaComponent } from './admincomponents/edit/categoria/categoria.component';
+import { OtrosComponent } from './admincomponents/edit/otros/otros.component';
+import { CategoriaComponentNew } from './admincomponents/new/categoria/categoria.component';
+import { ServicioComponentNew } from './admincomponents/new/servicio/servicio.component';
+import { TiposervicioComponentNew } from './admincomponents/new/tiposervicio/tiposervicio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    AdministrativepanelComponent
+    AdministrativepanelComponent,
+    InformacionbasicaComponent,
+    ServicioComponent,
+    TiposervicioComponent,
+    CategoriaComponent,
+    OtrosComponent,
+    CategoriaComponentNew,
+    ServicioComponentNew,
+    TiposervicioComponentNew
   ],
   imports: [
     BrowserModule,
