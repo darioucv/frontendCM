@@ -1,7 +1,73 @@
 /* You can add global styles to this file, and also import other style files */
-*{
-    padding: 0;
-    margin: 0;
+html{
+    font-size: 62.5%; /* reset para rems - 62.5% = 10px de 16px, es decir cada rem vale 10px */
+}
+body{
+  /*   background-image: url(../images/fondomadera2.jpg);
+    background-size: cover;
+    background-attachment: fixed; */
+    font-family: 'PT Serif', serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 3.4rem;
+}
+h3{
+    font-size: 3rem;
+}
+h4{
+    font-size: 2.6rem;
+}
+/* Globales */
+.contenedor{
+    max-width: 100rem;
+    margin: 0 auto;
+    
+}
+/* Utilidades */
+.seccion{
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+.fw-300{
+    font-weight: 300;
+}
+.centrar-texto{
+    text-align: center;
+}
+.letras-blancas{
+    color:white;
+}
+/* Header */
+.site-header{
+    background-color: #8B8080;/*532E2E*/
+    padding: 1rem 0 0 0;
+}
+.site-header.inicio{
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    min-height: 60rem;
+}
+.contenido-header{
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.contenido-header-admin{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.contenido-header h1{
+    font-size: 6rem;
+
 }
 /* forms */
 .ng-invalid:not(form){

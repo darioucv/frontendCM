@@ -1,7 +1,28 @@
-<nav>
-    <ul>
-        <li><a href="" >Navbar</a></li>
-        <li *ngIf=!loggedIn><a routerLink="login" >Login</a></li>
-        <li><a href="#" (click)="logout($event)" *ngIf=loggedIn>Logout</a></li>
-    </ul>
-</nav>
+<div class="barra">
+    <a *ngIf=loggedIn href="#">Panel<strong>Administrativo</strong> </a>
+    <nav class="navegacion">
+        <ul class="nav">
+            <li *ngIf=!loggedIn><a href="" >Navbar</a></li>
+            <li *ngIf=!loggedIn><a routerLink="login" >Login</a></li>
+            <li *ngIf=loggedIn ><a href="">Modificar</a>
+                <ul>
+                    <li><a href="">Informaci&oacute;n B&aacute;sica</a></li>
+                    <li><a href="">Servicios</a></li>
+                    <li><a href="">Tipo de Servicios</a></li>
+                    <li><a href="">Categor&iacute;as</a></li>
+                    <li><a href="">Otros</a></li>
+                </ul>
+            </li>
+            <li *ngIf=loggedIn><a href="">Nuevo</a>
+                <ul>
+                    <li><a href="">Categor&iacute;a</a></li>
+                    <li><a href="">Tipo de Servicio</a></li>
+                    <li><a href="">Servicio</a></li>
+                </ul>
+            </li>
+            <li><a href="#" (click)="logout($event)" *ngIf=loggedIn>Logout</a></li>
+        </ul>  
+    </nav>
+</div><!-- barra -->
+
+    

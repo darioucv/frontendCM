@@ -1,0 +1,52 @@
+/* general */
+.barra{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 3rem;
+}
+
+.barra a{
+    color: white;
+    text-decoration: none;
+    font-size: 3.5rem;
+}
+
+.barra :hover{
+    color: #71b100;
+
+}
+ul{
+    list-style-type: none;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+/* Navegacion */
+.navegacion a{
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+}
+.navegacion li{
+    margin-right: 2rem;
+
+}
+.navegacion a:hover{
+    color: #71b100;
+    
+}
+.navegacion a:last-of-type{
+    margin: 0;
+}
+/* desplegable */
+
+.nav li ul {
+    display:none;
+    position:absolute;
+    min-width:140px;
+}
+.nav li:hover > ul {
+    display:block;
+}
