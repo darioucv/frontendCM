@@ -1,1 +1,24 @@
-<p>informacionbasica works!</p>
+
+<div class="contenido-edicion" >
+    <h2 class="centrar-texto">Pantalla Principal</h2>
+    <div class="contenido-edicion-elementos"  *ngFor="let contenido of ArrayInformacionBasica">
+        <h3>Historia<hr></h3>
+        <p>{{contenido.historia}}</p>
+        <div id="contenedorButton"><button>Editar</button></div>
+    </div>
+    <div class="contenido-edicion-elementos"  *ngFor="let contenido of ArrayInformacionBasica">
+        <h3>Misi&oacute;n<hr></h3>
+        <p>{{contenido.mision}}</p>
+        <div id="contenedorButton"><button>Editar</button></div>
+    </div>
+    <div class="contenido-edicion-elementos"  *ngFor="let contenido of ArrayInformacionBasica">
+        <h3>Visi&oacute;n<hr></h3>
+        <p>{{contenido.vision}}</p>
+        <div id="contenedorButton"><button>Editar</button></div>
+    </div>
+    <div class="contenido-edicion-elementos"  *ngFor="let contenido of ArrayInformacionBasica">
+        <h3>Valores<hr></h3>
+        <p>{{contenido.valores}}</p>
+        <div id="contenedorButton"><button>Editar</button></div>
+    </div>
+</div>

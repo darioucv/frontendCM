@@ -1,20 +1,21 @@
+
 <div class="barra">
-    <a *ngIf=loggedIn href="#">Panel<strong>Administrativo</strong> </a>
+    <a *ngIf=loggedIn routerLink="panelAdmin">Panel<strong>Administrativo</strong> </a>
     <nav class="navegacion">
         <ul class="nav">
             <li *ngIf=!loggedIn><a href="#" >Navbar</a></li>
             <li *ngIf=!loggedIn><a routerLink="login" >Login</a></li>
-            <li *ngIf=loggedIn ><a href="#">Editar</a>
-                <ul>
-                    <li><a href="" routerLink="panelAdmin/edit/informacionbasica">Informaci&oacute;n B&aacute;sica</a></li>
+            <li *ngIf=loggedIn ><a routerLink="panelAdmin">Editar</a>
+                <ul >
+                    <li ><a href="" routerLink="panelAdmin/edit/informacionbasica">Informaci&oacute;n B&aacute;sica</a></li>
                     <li><a href="" routerLink="panelAdmin/edit/servicio">Servicios</a></li>
                     <li><a href="" routerLink="panelAdmin/edit/tiposServicio">Tipo de Servicios</a></li>
                     <li><a href="" routerLink="panelAdmin/edit/categoria">Categor&iacute;as</a></li>
-                    <li><a href="" routerLink="panelAdmin/edit/otros">Otros</a></li>
+                    <li ><a href="" routerLink="panelAdmin/edit/otros">Otros</a></li>
                 </ul>
             </li>
-            <li *ngIf=loggedIn><a href="">Nuevo</a>
-                <ul>
+            <li *ngIf=loggedIn><a routerLink="panelAdmin">Nuevo</a>
+                <ul >
                     <li><a href="" routerLink="panelAdmin/new/categoria">Categor&iacute;a</a></li>
                     <li><a href="" routerLink="panelAdmin/new/tipoServicio">Tipo de Servicio</a></li>
                     <li><a href="" routerLink="panelAdmin/new/servicio">Servicio</a></li>

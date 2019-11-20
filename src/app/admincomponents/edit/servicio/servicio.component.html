@@ -1,1 +1,9 @@
-<p>servicio works!</p>
+<div class="contenido-edicion ">
+        <h2 class="centrar-texto">Servicios</h2>
+        <div class="contenido-edicion-servicio"  *ngFor="let contenido of ArrayServicios">
+            <h3>{{contenido.nombre}} <hr></h3>
+            <p>{{contenido.descripcion}} </p>
+            <img src="{{RutaImagenes+contenido.imagen}}" alt="">
+            <div id="contenedorButton"><button>Editar</button></div>
+        </div>
+    </div>

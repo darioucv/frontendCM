@@ -23,6 +23,7 @@ ul{
     display: flex;
     justify-content: space-between;
 }
+
 /* Navegacion */
 .navegacion a{
     color: white;
@@ -35,7 +36,6 @@ ul{
 }
 .navegacion a:hover{
     color: #71b100;
-    
 }
 .navegacion a:last-of-type{
     margin: 0;
