@@ -16,4 +16,12 @@ export class ServicioService {
    getRutaImg(){
     return this.API_ENDPOINT+'/imageServicio/';
   }
+  modificar(contenido){
+    const headers = new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.put(this.API_ENDPOINT+'/servicio/'+contenido.id,contenido,{headers: headers});
+  }
+  putImage(filesToUpload:any,idRegistro:any){
+
+    return this.httpClient.post(this.API_ENDPOINT+'/uploadImageServicio/'+idRegistro,filesToUpload);
+  }
 }

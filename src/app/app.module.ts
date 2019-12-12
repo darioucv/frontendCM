@@ -35,7 +35,8 @@ import { TiposervicioComponentNew } from './admincomponents/new/tiposervicio/tip
     OtrosComponent,
     CategoriaComponentNew,
     ServicioComponentNew,
-    TiposervicioComponentNew
+    TiposervicioComponentNew,
+
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { servicio } from 'src/app/interfaces/servicio';
 import { ServicioService } from 'src/app/services/crud/servicio.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-servicio',
   templateUrl: './servicio.component.html',
@@ -12,7 +13,8 @@ export class ServicioComponent implements OnInit {
   RutaImagenes :string;
 
   constructor(
-      private serviciosService:ServicioService
+      private serviciosService:ServicioService,
+      private route:Router
   ) {
     this.RutaImagenes=this.serviciosService.getRutaImg()
     this.serviciosService.get().subscribe(
@@ -22,6 +24,9 @@ export class ServicioComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+  editarServicio(id:any){
+    this.route.navigateByUrl('panelAdmin/edit/servicio/formulario/'+id);  
   }
 
 }

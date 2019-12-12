@@ -14,6 +14,7 @@ import { CategoriaComponentNew } from './admincomponents/new/categoria/categoria
 import { ServicioComponentNew } from './admincomponents/new/servicio/servicio.component';
 import { TiposervicioComponentNew } from './admincomponents/new/tiposervicio/tiposervicio.component';
 
+
 const routes: Routes = [
   {
     path:'login',
@@ -64,10 +65,12 @@ const routes: Routes = [
     path:'panelAdmin/new/tipoServicio',
     component:TiposervicioComponentNew,
     canActivate : [AfterLoginService]
+  },
+  {
+    path:'panelAdmin/edit/servicio/formulario/:id',
+    component:ServicioComponentNew,
+    canActivate : [AfterLoginService]
   }
-
-  
-
 ];
 
 @NgModule({

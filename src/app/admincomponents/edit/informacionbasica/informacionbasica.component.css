@@ -1,0 +1,25 @@
+#buttoninfoba{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+#buttoninfoba button{
+    font-size: 2rem;
+    width: 62rem;
+}
+#contenedorInfoBasica{
+
+    max-width: 100rem;
+    margin: 0 auto;
+    padding-top: 5rem;
+
+}
+#texto-valores{
+
+    width:30rem;
+    padding-right: 2rem;
+}
+.buton-modificar{
+    width:9rem;
+    height: 8rem;
+}
+

@@ -1,24 +1,46 @@
 
+
 <div class="contenido-edicion" >
     <h2 class="centrar-texto">Pantalla Principal</h2>
-    <div class="contenido-edicion-elementos"  *ngFor="let contenido of ArrayInformacionBasica">
-        <h3>Historia<hr></h3>
-        <p>{{contenido.historia}}</p>
-        <div id="contenedorButton"><button>Editar</button></div>
+
+    <div id="contenedorInfoBasica" *ngFor="let contenido of ArrayInformacionBasica"> 
+        <div class="contenido-edicion-elementos-2colums" >
+            <h3>Historia<hr></h3>
+            <p *ngIf="!buttonEditarEsPresionado">{{contenido.historia}}</p>
+            <div *ngIf="buttonEditarEsPresionado">
+                <textarea [(ngModel)]="ArrayVacioInfoBasica.historia" class="textArea-generic"></textarea>
+            </div>
+        </div>
+        <div class="contenido-edicion-elementos-2colums"  >
+            <h3>Misi&oacute;n<hr></h3>
+            <p *ngIf="!buttonEditarEsPresionado">{{contenido.mision}}</p>
+            <div *ngIf="buttonEditarEsPresionado">
+                <textarea [(ngModel)]="ArrayVacioInfoBasica.mision" class="textArea-generic" >{{contenido.mision}}</textarea>
+            </div>
+            
+        </div>
+        <div class="contenido-edicion-elementos-2colums"  >
+            <h3>Visi&oacute;n<hr></h3>  
+            <p *ngIf="!buttonEditarEsPresionado">{{contenido.vision}}</p>
+            <div *ngIf="buttonEditarEsPresionado">
+                <textarea [(ngModel)]="ArrayVacioInfoBasica.vision" class="textArea-generic">{{contenido.vision}}</textarea>
+            </div>
+        </div>
     </div>
-    <div class="contenido-edicion-elementos"  *ngFor="let contenido of ArrayInformacionBasica">
-        <h3>Misi&oacute;n<hr></h3>
-        <p>{{contenido.mision}}</p>
-        <div id="contenedorButton"><button>Editar</button></div>
-    </div>
-    <div class="contenido-edicion-elementos"  *ngFor="let contenido of ArrayInformacionBasica">
-        <h3>Visi&oacute;n<hr></h3>
-        <p>{{contenido.vision}}</p>
-        <div id="contenedorButton"><button>Editar</button></div>
-    </div>
-    <div class="contenido-edicion-elementos"  *ngFor="let contenido of ArrayInformacionBasica">
+
+    <div class="contenido-edicion-elementos" >
         <h3>Valores<hr></h3>
-        <p>{{contenido.valores}}</p>
-        <div id="contenedorButton"><button>Editar</button></div>
+        <div >
+            <div *ngFor="let contenido of ArrayEmpresaDatos">
+            <ng-container *ngIf="contenido.datos_id ==1">
+                <p>{{contenido.datoempresa}}</p>
+            </ng-container>
+            </div> 
+        </div>
+        <div align="center"><button class="buton-modificar" *ngIf="!buttonEditarEsPresionado"(click)="irAOtros()" >Editar Solo Valores</button></div> 
+    </div>
+    <div id="buttoninfoba" align="center" >
+        <button *ngIf="!buttonEditarEsPresionado" (click)="ModificarInfoBasi()">Editar</button>
+        <button *ngIf="buttonEditarEsPresionado" (click)="GuardarInfoBasi()">Guardar</button>
     </div>
 </div>

@@ -14,4 +14,8 @@ export class InformacionbasicaService {
   get(){
     return this.httpClient.get(this.API_ENDPOINT+'/informacionBasica');
    }
+  modificar(contenido){
+    const headers=new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.put(this.API_ENDPOINT+'/informacionBasica/'+3,contenido,{headers:headers});
+  }
 }
