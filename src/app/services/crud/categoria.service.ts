@@ -21,5 +21,14 @@ export class CategoriaService {
     const headers = new HttpHeaders({'Content-Type':'application/json'});
     return this.httpClient.post(this.API_ENDPOINT+'/categorias',categoria,{headers: headers});
   }
-  
+  modificar(contenido)
+  {
+    const headers = new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.put(this.API_ENDPOINT+'/categorias/'+contenido.id,contenido,{headers: headers});
+  }
+  putImage(filesToUpload:any,idRegistro:any)
+  {
+
+    return this.httpClient.post(this.API_ENDPOINT+'/uploadImageCategoria/'+idRegistro,filesToUpload);
+  }
 }

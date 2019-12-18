@@ -2,7 +2,14 @@
         <h2 class="centrar-texto">Categor&iacute;as</h2>
         <div class="contenido-edicion-elementos"  *ngFor="let contenido of ArrayCategoria">
             <h3>{{contenido.nombre}}<hr></h3>
-            <img id="img-edicion-categorias"src="{{RutaImagenes+contenido.imagen}}" alt="">
-            <div id="contenedorButton"><button>Editar</button></div>
+      
+                <img id="img-edicion-categorias"src="{{RutaImagenes+contenido.imagen}}" alt="">
+         
+
+           
+            <div id="contenedorButton">
+                <button (click)="editarCategoria(contenido.id)">Editar</button>
+            </div>
+        
         </div>
 </div>

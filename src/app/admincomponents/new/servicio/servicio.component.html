@@ -1,49 +1,48 @@
-<div>
-    <label for="nombre">Nombre: </label>
-    <input type="text" [(ngModel)]="ArrayVacioServicios.nombre" id="nombre" name="nombre" required>
-</div>
-<div>
-    <label for="descripcion">Descripci&oacute;n: </label>
-    <textarea name="descripcion"  id="descripcion" [(ngModel)]="ArrayVacioServicios.descripcion" cols="30" rows="10" required></textarea>
-</div>
-<div>
-    <label for="estrella"> Servicio Estrella: </label>
-    <input type="radio" name="estrella" value="0"  [(ngModel)]="valorDefaultRB"> NO
-    <input type="radio" name="estrella" value="1"  [(ngModel)]="valorDefaultRB"> SI
-</div>
-<div>
-    <label for="imagenServ">Imagen: </label><!-- (change)="preview(file.files) -->
-    <input #file type="file" name="imagenServ" id="imagenServ" (change)="uploadFile($event)"
-     accept=".png,.jpg,.jpeg" required>
-     <div>  
-         <div *ngIf ="editing">
-             <img src="{{RutaImagenes+ArrayVacioServicios.imagen}}" height="200" width="200" *ngIf="!imgURL">
-         </div>
-
-            <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
-     </div>
-</div>
-
-<div *ngIf ="!editing">
-    <label for="tipoServicio">Tipo Servicio: </label>
-    <select name="tipoServicio">
-            <option *ngFor="let contenido of ArrayTipoServicios" value="{{contenido.id}}">{{contenido.nombre}}</option>
-    </select>
-</div>
-<div>
-    <div *ngIf ="!editing">
-        <button (click)="GuardarServicio()">Guardar Servicio</button>
-        <button (click)="IrPanel()">Atrás</button>
+<form #ServiceForm=ngForm>
+    <div>
+        <label for="nombre">Nombre: </label>
+        <input type="text" [(ngModel)]="ArrayVacioServicios.nombre" id="nombre" name="nombre" required>
     </div>
-
+    <div>
+        <label for="descripcion">Descripci&oacute;n: </label>
+        <textarea name="descripcion"  id="descripcion" [(ngModel)]="ArrayVacioServicios.descripcion" cols="30" rows="10" required></textarea>
+    </div>
+    <div>
+        <label for="estrella"> Servicio Estrella: </label>
+        <input type="radio" name="estrella" value="0"  [(ngModel)]="valorDefaultRB" required> NO
+        <input type="radio" name="estrella" value="1"  [(ngModel)]="valorDefaultRB" required> SI
+    </div>
     <div *ngIf ="editing">
-        <button (click)="ModificarServicio()">Guardar Modificaci&oacute;n</button>
-        <button (click)="IrServicios()">Atrás</button>
+        <label for="imagenServ">Imagen: </label>
+        <input #file type="file" name="imagenServ" id="imagenServ" (change)="uploadFile($event)"
+        accept=".png,.jpg,.jpeg" required>
+        <div>  
+            <div>
+                <img src="{{RutaImagenes+ArrayVacioServicios.imagen}}" height="200" width="200" *ngIf="!imgURL">
+            </div>
+                <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+        </div>
     </div>
-  
-</div>
 
+    <div *ngIf ="!editing">
+        <label for="tipoServicio">Tipo Servicio: </label>
+        <select name="tipoServicio" id="tipoServicio" [(ngModel)]="tipoServicioID" (change)="capturarIDTipoServicio()" required>  
+            <option *ngFor="let contenido of ArrayTipoServicios" value="{{contenido.id}}">{{contenido.nombre}}</option>
+        </select>
+    </div>
+    <div>
+        <div *ngIf ="!editing">
+            <button (click)="GuardarServicio()" [disabled]="!ServiceForm.valid">Guardar Servicio</button>
+            <button (click)="IrPanel()">Atrás</button>
+        </div>
 
+        <div *ngIf ="editing">
+            <button (click)="GuardarServicio()" [disabled]="!ServiceForm.valid">Guardar Modificaci&oacute;n</button>
+            <button (click)="IrServicios()">Atrás</button>
+        </div>
+        
+    </div>
+</form>
 
 
 

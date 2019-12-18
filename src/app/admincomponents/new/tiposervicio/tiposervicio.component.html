@@ -1,1 +1,24 @@
-<p>New tiposervicio works!</p>
+<form #TipoServiceForm=ngForm>
+    <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" [(ngModel)]="ArrayVacioTipoServicio.nombre" required>
+    </div>
+    <div>
+        <label for="descripcion">Descripci&oacute;n</label>
+        <textarea name="descripcion" id="descripcion" cols="30" rows="10" [(ngModel)]="ArrayVacioTipoServicio.descripcion" required></textarea>
+    </div>
+    <div *ngIf ="!editing">
+        <label for="categoria">Categor&iacute;a</label>
+        <select name="categoria" id="categoria" [(ngModel)]="categoriaID" (change)="capturarIDCategoria()" required>
+            <option  *ngFor="let contenido of ArrayCategoria" value="{{contenido.id}}">{{contenido.nombre}}</option>
+        </select>
+    </div>
+    <div *ngIf ="editing">
+        <button *ngIf ="editing" [disabled]="!TipoServiceForm.valid" (click)="GuardarTipoServicio()">Guardar Modificaci&oacute;n</button>
+        <button (click)="IrATipoServicio()">Atr&aacute;s</button>
+    </div>
+    <div *ngIf ="!editing">
+        <button *ngIf ="!editing" [disabled]="!TipoServiceForm.valid" (click)="GuardarTipoServicio()">Guardar</button>
+        <button (click)="IrPanel()">Atr&aacute;s</button>
+    </div>
+</form>

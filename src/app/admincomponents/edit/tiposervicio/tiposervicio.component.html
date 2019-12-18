@@ -4,21 +4,23 @@
             <h3>{{contenido.nombre}}<hr></h3>
             <p>{{contenido.descripcion}}</p>
 
-            <div *ngIf="contenido.categoria_id==13">
+            <div *ngIf="contenido.categoria_id==1">
                 <div *ngFor="let contenidocategoria of ArrayCategoria" >
-                   <p align="center"*ngIf="contenidocategoria.id==13">Categor&iacute;a: {{contenidocategoria.nombre}} </p>
+                   <p align="center"*ngIf="contenidocategoria.id==1">Categor&iacute;a: {{contenidocategoria.nombre}} </p>
                </div> 
             </div>
-            <div *ngIf="contenido.categoria_id==14">
+            <div *ngIf="contenido.categoria_id==2">
                 <div *ngFor="let contenidocategoria of ArrayCategoria" >
-                    <p align="center"*ngIf="contenidocategoria.id==14">Categor&iacute;a: {{contenidocategoria.nombre}} </p>
+                    <p align="center"*ngIf="contenidocategoria.id==2">Categor&iacute;a: {{contenidocategoria.nombre}} </p>
                 </div> 
             </div>
-            <div *ngIf="contenido.categoria_id==15">
+            <div *ngIf="contenido.categoria_id==3">
                 <div *ngFor="let contenidocategoria of ArrayCategoria" >
-                    <p align="center"*ngIf="contenidocategoria.id==15">Categor&iacute;a: {{contenidocategoria.nombre}} </p>
+                    <p align="center"*ngIf="contenidocategoria.id==3">Categor&iacute;a: {{contenidocategoria.nombre}} </p>
                 </div> 
             </div>
-            <div id="contenedorButton"><button>Editar</button></div>
+            <div id="contenedorButton">
+                <button (click)="editarTipoServicio(contenido.id)">Editar</button>
+            </div>
         </div>
     </div>

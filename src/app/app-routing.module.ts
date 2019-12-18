@@ -70,6 +70,16 @@ const routes: Routes = [
     path:'panelAdmin/edit/servicio/formulario/:id',
     component:ServicioComponentNew,
     canActivate : [AfterLoginService]
+  },
+  {
+    path:'panelAdmin/edit/tipoServicio/formulario/:id',
+    component:TiposervicioComponentNew,
+    canActivate : [AfterLoginService]
+  },
+  {
+    path:'panelAdmin/edit/categoria/formulario/:id',
+    component:CategoriaComponentNew,
+    canActivate : [AfterLoginService]
   }
 ];
 

@@ -1,1 +1,32 @@
-<p>New categoria works!</p>
+<form #CategoryForm=ngForm>
+    <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" [(ngModel)]="arrayVacioCategoria.nombre" required>
+    </div>
+    <div  *ngIf ="editing">
+        <label for="imagenCate">Imagen: </label>
+        <input #file type="file" name="imagenCate" id="imagenCate" (change)="uploadFile($event)"
+        accept=".png,.jpg,.jpeg" required>
+        <div>  
+            <div *ngIf="!imgURL">
+                <img src="{{RutaImagenes+arrayVacioCategoria.imagen}}" height="200" width="200" >
+            </div>
+            <div>
+                <img [src]="imgURL" height="200" width="200" *ngIf="imgURL">
+            </div>
+        </div>
+    </div>
+    <div>
+        <div *ngIf ="!editing">
+            <button (click)="GuardarCategoria()" [disabled]="!CategoryForm.valid">Guardar Categor&iacute;a</button>
+            <button (click)="IrPanel()">Atrás</button>
+        </div>
+
+        <div *ngIf ="editing">
+            <button (click)="GuardarCategoria()" [disabled]="!CategoryForm.valid">Guardar Modificaci&oacute;n</button>
+            <button (click)="IrCategorias()">Atrás</button>
+        </div>
+        
+    </div>
+
+</form>

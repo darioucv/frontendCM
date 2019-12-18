@@ -2,6 +2,14 @@
 html{
     font-size: 62.5%; /* reset para rems - 62.5% = 10px de 16px, es decir cada rem vale 10px */
 }
+/* swal */
+#swal2-title{
+    font-size: 2.5rem;
+}
+#swal2-content{
+    font-size: 2rem;
+}
+
 body{
   /*   background-image: url(../images/fondomadera2.jpg);
     background-size: cover;

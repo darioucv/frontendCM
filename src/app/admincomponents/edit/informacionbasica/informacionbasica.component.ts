@@ -3,7 +3,9 @@ import { infoBasica } from '../../../interfaces/informacionbasica';
 import { InformacionbasicaService } from '../../../services/crud/informacionbasica.service';
 import { empresadato } from 'src/app/interfaces/empresadatos';
 import { EmpresadatosService } from 'src/app/services/crud/empresadatos.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SwalPortalTargets } from '@sweetalert2/ngx-sweetalert2';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-informacionbasica',
   templateUrl: './informacionbasica.component.html',
@@ -14,7 +16,7 @@ export class InformacionbasicaComponent implements OnInit {
   ArrayInformacionBasica: infoBasica[];
   buttonEditarEsPresionado:boolean = false;
   ArrayEmpresaDatos:empresadato[];
-  id:number = 3;
+  id:number = 1;
 
   ArrayVacioInfoBasica: infoBasica={
     historia:null,
@@ -23,9 +25,11 @@ export class InformacionbasicaComponent implements OnInit {
     empresas_id2: 3
   };
   constructor(
+    public readonly swalTargets: SwalPortalTargets,
+    private activateRoute:ActivatedRoute,
+    private route:Router,
     private informacionbasica:InformacionbasicaService,
     private empresaDatos:EmpresadatosService,
-    private route:Router,
   ) { 
     
     this.informacionbasica.get().subscribe(
@@ -37,7 +41,7 @@ export class InformacionbasicaComponent implements OnInit {
         (error)=>{console.log(error);});
     this.empresaDatos.get().subscribe(
       (data:empresadato[])=>{this.ArrayEmpresaDatos=data},
-      (error)=>{alert('Ocurrió un error'+error);}
+      (error)=>{console.log(error)}
     );
     
     
@@ -47,16 +51,31 @@ export class InformacionbasicaComponent implements OnInit {
     }
   GuardarInfoBasi(){
     this.informacionbasica.modificar(this.ArrayVacioInfoBasica).subscribe(
-      (data)=>{},
-      (error)=>{console.log(error);
-        alert('Ocurrió un error');}
-    );
+      (data)=>{ this.MensajeConfirmacion("Datos Modificados");},
+      (error)=>{
+        console.log(error)}
+      );
     this.buttonEditarEsPresionado=false;
   }
   ngOnInit() {
   }
   irAOtros(){
     this.route.navigateByUrl('panelAdmin/edit/otros');
+  }
+  
+  MensajeConfirmacion(texto){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: texto,
+      showConfirmButton: false,
+      timer: 1500
+    }).then((result)=>{
+      this.IrPanel();
+    })
+  }
+  IrPanel(){
+    this.route.navigateByUrl('/panelAdmin');
   }
 
 }

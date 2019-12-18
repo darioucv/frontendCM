@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { categoria }from 'src/app/interfaces/categoria';
 import { CategoriaService }from 'src/app/services/crud/categoria.service';
+
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-categoria',
   templateUrl: './categoria.component.html',
@@ -11,7 +13,7 @@ export class CategoriaComponent implements OnInit {
   ArrayCategoria: categoria[];
   RutaImagenes :string;
 
-  constructor(private categoriaSer: CategoriaService) { 
+  constructor(private categoriaSer: CategoriaService,private route:Router) { 
     this.RutaImagenes=this.categoriaSer.getRutaImg();
     this.categoriaSer.get().subscribe(
       (data:categoria[])=>{this.ArrayCategoria = data},
@@ -21,4 +23,8 @@ export class CategoriaComponent implements OnInit {
 
   ngOnInit() {
   }
+  editarCategoria(id:number){
+    this.route.navigateByUrl('panelAdmin/edit/categoria/formulario/'+id);  
+  }
 }
+
