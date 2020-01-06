@@ -9,4 +9,8 @@ export class DatoService {
   constructor(private rutaBackend:Globals,private httpClient: HttpClient) { 
     this.API_ENDPOINT = this.rutaBackend.getRutaBackend()
   }
+  get(){
+    return this.httpClient.get(this.API_ENDPOINT+'/datos');
+  }  
+
 }

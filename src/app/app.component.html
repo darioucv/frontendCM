@@ -1,9 +1,9 @@
-<header class="site-header inicio">
-  <div class="contenedor" [ngClass]="{
-    'contenido-header-admin':loggedIn,
-    'contenido-header':!loggedIn
-  }">
+<header class="site-header">
     <app-navbar></app-navbar>
+</header>
+<div>
     <router-outlet></router-outlet>
-  </div>
-</header >
+</div>
+<footer>
+    <app-footer *ngIf="!loggedIn"></app-footer>
+</footer>

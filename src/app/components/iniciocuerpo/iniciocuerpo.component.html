@@ -1,0 +1,39 @@
+<div class="inicio-cuerpo">
+    <div *ngFor="let contenido of ArrayInformacionBasica" class="contenedor-inicio-cuerpo">
+
+        <div id="contenedorHistoria">
+            <h3 class="no-margin">Historia</h3>
+            <hr class="hrStyle">
+            <p class="no-margin">{{contenido.historia}}</p>
+        </div>
+        <div id="contenedor-mision-vision">
+            <div>
+                <h3 class="no-margin">Misi&oacute;n</h3>
+                <hr class="hrStyle">
+                <p class="no-margin">{{contenido.mision}}</p>
+            </div>
+
+            <div>
+                <h3 class="no-margin">Visi&oacute;n</h3>
+                <hr class="hrStyle">
+                <p class="no-margin">{{contenido.vision}}</p>
+            </div>
+        </div>
+
+        <div>
+            <h3 class="no-margin">Valores</h3>
+            <hr class="hrStyle">
+            <div>
+                <div *ngFor="let valores of ArrayEmpresaDatos">
+                    <ul>
+                        <li *ngIf="valores.datos_id == 1" class="no-margin">{{valores.datoempresa}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr class="hrStyle ">
+    </div>
+
+</div>
+
+<app-iniciocuerpo2></app-iniciocuerpo2>

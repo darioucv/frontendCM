@@ -1,0 +1,24 @@
+<div>
+    <div>
+        <div *ngFor="let contenido of ArrayCategoria">
+            <button (click)="EleccionCategoria(contenido.id)">
+                <img src="{{rutaImagenCategoria+contenido.imagen}}" alt="">
+                <h4>{{contenido.nombre}}</h4>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="categoriaSeleccionada" ><!-- muestra los tipos de servicio con sus servicios -->
+    <div *ngFor="let contenido of ArrayTipoServicio">
+        <div *ngIf = "contenido.categoria_id == categoriaSeleccionada">
+            <h5>{{contenido.nombre}}</h5><hr>
+            <div *ngFor="let contenidoServicios of ArrayServicio">
+                <div *ngIf="contenidoServicios.tiposervicios_id == contenido.id">
+                    <p>{{contenidoServicios.nombre}}</p>
+                    <img src="{{rutaImagenServicio+contenidoServicios.imagen}}" alt="imagenservicio">
+                </div>
+            </div>       
+        </div>
+    </div>
+</div>

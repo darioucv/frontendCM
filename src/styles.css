@@ -1,147 +1,263 @@
-/* You can add global styles to this file, and also import other style files */
-html{
-    font-size: 62.5%; /* reset para rems - 62.5% = 10px de 16px, es decir cada rem vale 10px */
+/* apply a natural box layout model to all elements, but allowing components to change */
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* reset para rems - 62.5% = 10px de 16px, es decir cada rem vale 10px */
 }
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
 /* swal */
-#swal2-title{
+
+#swal2-title {
     font-size: 2.5rem;
 }
-#swal2-content{
+
+#swal2-content {
     font-size: 2rem;
 }
 
-body{
-  /*   background-image: url(../images/fondomadera2.jpg);
-    background-size: cover;
-    background-attachment: fixed; */
-    font-family: 'PT Serif', serif;
+body {
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.6rem;
     line-height: 2;
-    background-color: #8B8080;/*532E2E*/
-}
-h1{
-    font-size: 3.8rem;
-}
-h2{
-    font-size: 3.4rem;
-}
-h3{
-    font-size: 3rem;
-}
-h4{
-    font-size: 2.6rem;
-}
-/* Globales */
-.contenedor{
-    max-width: 100rem;
-    margin: 0 auto;
-    
-}
-#LoginActivo{
-    width: 5rem;
-}
-/* Utilidades */
-.seccion{
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-}
-.fw-300{
-    font-weight: 300;
-}
-.centrar-texto{
-    text-align: center;
-}
-.letras-blancas{
-    color:white;
+    background-color: white;
 }
 
-/* Header */
-.site-header{
-    background-color: #8B8080;/*532E2E*/
-    padding: 1rem 0 0 0;
+
+/* Globales */
+
+.contenedor {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
 }
-.site-header.inicio{
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'PT Sans', sans-serif;
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3.2rem;
+}
+
+h4 {
+    font-size: 2.8rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* Utilidades */
+
+.centrar-texto {
+    text-align: center;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.elementoInvisible {
+    display: none;
+}
+
+
+/* HEADER */
+
+#menuHamburguesa {
+    height: 5rem;
+    padding-right: 2rem;
+}
+
+#menuHamburguesa:hover {
+    cursor: pointer;
+}
+
+
+/* navegacion */
+
+.navegacion {
+    display: none;
+}
+
+.navegacion a {
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.navegacion li {
+    margin-right: 2rem;
+    display: block;
+    font-size: 1.8rem;
+}
+
+.navegacion a:last-of-type {
+    margin: 0;
+}
+
+
+/* desplegable */
+
+.nav li ul {
+    display: none;
+    position: absolute;
+    min-width: 140px;
+}
+
+.nav li:hover>ul {
+    display: block;
+}
+
+.nav {
+    list-style-type: none;
+}
+
+@media (min-width: 790px) {
+    .NavHamburger {
+        display: none;
+    }
+    .navegacion {
+        display: flex;
+    }
+    #menuHamburguesa {
+        display: none;
+    }
+    .nav {
+        display: flex;
+        justify-content: space-between;
+    }
+    .navegacion a:hover {
+        color: #ff0505;
+        cursor: pointer;
+        font-size: 2.1rem;
+    }
+}
+
+.barra-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    flex-direction: row-reverse;
+}
+
+@media (min-width: 790px) {
+    .barra {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 2rem;
+    }
+}
+
+.site-header {
+    background-image: url(../src/assets/fondocamionblanco2.jpg);
     background-attachment: fixed;
+    background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     height: 100vh;
-    min-height: 60rem;
-}
-.contenido-header{
-    height: 75%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.contenido-header-admin{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.contenido-header h1{
-    font-size: 6rem;
-
-}
-/* forms */
-.ng-invalid:not(form){
-    border-left: 5px solid red;
-}
-.ng-valid:not(form){
-    border-left: 5px solid green;
-}
-/* parte edicion general de administracion contenido */
-.contenido-edicion{
-    max-width: 100rem;
-    margin: 0 auto;
-    height: 100vh;
-}  
-.contenido-edicion-elementos{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-column-gap: 3rem;
-    align-items: center;
-    
-} 
-.contenido-edicion-elementos-2colums{
-    display: grid;
-    grid-template-columns: repeat(2 ,1fr);
-    grid-column-gap: 3rem;
-    align-items: center;
-    
-} 
-.contenido-edicion-elementos button{
-    font-size:2rem;
-    width:7rem;
-    height: 4rem;
-    
+    min-height: 65rem;
 }
 
-.contenido-edicion-servicio{ 
-    display: grid;
-    grid-template-columns: 20rem 40rem repeat(2,1fr);/* repeat(4,1fr); */
-    grid-column-gap: 3rem;
-    align-items: center;
-    padding-top: 5rem;
+.texto-slogan {
+    color: #ffffff;
+    text-align: center;
+    padding-top: 15rem;
 }
-.contenido-edicion-servicio img{
-    width: 22rem;
-    height: 15rem;
+
+@media (min-width: 790px) {
+    .contenedor-botones-inicio {
+        display: grid;
+        grid-template-columns: repeat(2, 15rem);
+        column-gap: 30px;
+        padding-left: 11rem;
+    }
+    .texto-slogan {
+        font-size: 9rem;
+        padding-top: 4rem;
+    }
 }
-.contenido-edicion-elementos-4colum{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-column-gap: 3rem;
-    align-items: center;
+
+.site-header a {
+    color: #ffffff;
+    text-decoration: none;
 }
-#img-edicion-categorias{
-    width: 25rem;
-    height: 12rem;
+
+#logoEmpresa {
+    height: 10rem;
+    padding-left: 2rem;
 }
-/* INPUTS */
-.textArea-generic{
-    overflow:hidden;
-    border-radius:1rem;
-    border:3px solid #556677;
-    width: 40rem;
-    height: 12rem;
+
+#logoEmpresa:hover {
+    cursor: pointer;
+}
+
+.flechaabajo {
+    height: 5rem;
+}
+
+
+/* BOTONES */
+
+.flechaabajo {
+    display: block;
+    margin: auto;
+    margin-top: 8rem;
+}
+
+.flechaabajo:hover {
+    cursor: pointer;
+}
+
+@media (min-width: 790px) {
+    .btn {
+        display: block;
+        text-align: center;
+        font-family: 'PT Sans', sans-serif;
+        text-transform: uppercase;
+        font-size: 2rem;
+    }
+    .btn-servicios {
+        background-color: #002BFF;
+    }
+    .btn-contacto {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background-color: rgba(0, 0, 0, 0.56);
+        border-radius: 7px 7px 7px 7px;
+        -moz-border-radius: 7px 7px 7px 7px;
+        -webkit-border-radius: 7px 7px 7px 7px;
+    }
+    .flechaabajo {
+        margin-top: 0;
+    }
+    .flechaabajo:hover {
+        height: 7rem;
+    }
+}
+
+.btn:hover {
+    cursor: pointer;
 }

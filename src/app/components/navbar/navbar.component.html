@@ -1,29 +1,68 @@
+<div class="contenedor">
+    <div class="barra">
+        <a *ngIf=loggedIn routerLink="panelAdmin">
+            <h1 class="no-margin">Panel<strong>Administrativo</strong> </h1>
+        </a>
+        <div class="barra-mobile">
+            <div *ngFor="let contenido of ArrayEmpresa">
+                <a *ngIf=!loggedIn href="#navegacion">
+                    <img src="{{rutaLogo+contenido.icono}}" alt="logoEmpresa" id="logoEmpresa">
+                </a>
+            </div>
 
-<div class="barra">
-    <a *ngIf=loggedIn routerLink="panelAdmin">Panel<strong>Administrativo</strong> </a>
-    <nav class="navegacion">
-        <ul class="nav">
-            <li *ngIf=!loggedIn><a href="#" >Navbar</a></li>
-            <li *ngIf=!loggedIn><a routerLink="login" >Login</a></li>
-            <li *ngIf=loggedIn ><a routerLink="panelAdmin">Editar</a>
-                <ul >
-                    <li ><a href="" routerLink="panelAdmin/edit/informacionbasica">Informaci&oacute;n B&aacute;sica</a></li>
-                    <li><a href="" routerLink="panelAdmin/edit/servicio">Servicios</a></li>
-                    <li><a href="" routerLink="panelAdmin/edit/tiposServicio">Tipo de Servicios</a></li>
-                    <li><a href="" routerLink="panelAdmin/edit/categoria">Categor&iacute;as</a></li>
-                    <li ><a href="" routerLink="panelAdmin/edit/otros">Otros</a></li>
-                </ul>
-            </li>
-            <li *ngIf=loggedIn><a routerLink="panelAdmin">Nuevo</a>
-                <ul >
-                    <li><a href="" routerLink="panelAdmin/new/categoria">Categor&iacute;a</a></li>
-                    <li><a href="" routerLink="panelAdmin/new/tipoServicio">Tipo de Servicio</a></li>
-                    <li><a href="" routerLink="panelAdmin/new/servicio">Servicio</a></li>
-                </ul>
-            </li>
-            <li><a href="#" (click)="logout($event)" *ngIf=loggedIn>Logout</a></li>
-        </ul>  
-    </nav>
-</div><!-- barra -->
+            <div class="NavHamburger">
+                <a *ngIf=!loggedIn>
+                    <nav role="navigation">
+                        <div id="menuToggle">
+                            <input type="checkbox" />
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <ul id="menu">
+                                <li *ngIf=!loggedIn><a (click)="NombreComponente($event,'inicio')">Inicio</a></li>
+                                <li *ngIf=!loggedIn><a (click)="NombreComponente($event,'inicio')">Nosotros</a></li>
+                                <li *ngIf=!loggedIn><a (click)="NombreComponente($event,'servicio')">Servicios</a></li>
+                                <li *ngIf=!loggedIn><a (click)="NombreComponente($event,'contacto')">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </a>
+            </div>
+        </div>
 
-    
+        <nav id="navegacion" class="navegacion">
+            <ul class="nav">
+                <li *ngIf=!loggedIn><a (click)="NombreComponente($event,'inicio')">Inicio</a></li>
+                <li *ngIf=!loggedIn><a (click)="NombreComponente($event,'inicio')">Nosotros</a></li>
+                <li *ngIf=!loggedIn><a (click)="NombreComponente($event,'servicio')">Servicios</a></li>
+                <li *ngIf=!loggedIn><a (click)="NombreComponente($event,'contacto')">Contacto</a></li>
+                <!-- parte admin -->
+                <li *ngIf=loggedIn><a routerLink="panelAdmin">Editar</a>
+                    <ul>
+                        <li><a routerLink="panelAdmin/edit/informacionbasica">Informaci&oacute;n B&aacute;sica</a></li>
+                        <li><a routerLink="panelAdmin/edit/servicio">Servicios</a></li>
+                        <li><a routerLink="panelAdmin/edit/tiposServicio">Tipo de Servicios</a></li>
+                        <li><a routerLink="panelAdmin/edit/categoria">Categor&iacute;as</a></li>
+                        <li><a routerLink="panelAdmin/edit/otros">Otros</a></li>
+                    </ul>
+                </li>
+                <li *ngIf=loggedIn><a routerLink="panelAdmin">Nuevo</a>
+                    <ul>
+                        <li><a routerLink="panelAdmin/new/categoria">Categor&iacute;a</a></li>
+                        <li><a routerLink="panelAdmin/new/servicio">Servicio</a></li>
+                        <li><a routerLink="panelAdmin/new/tipoServicio">Tipo de Servicio</a></li>
+                    </ul>
+                </li>
+                <li *ngIf=loggedIn><a (click)="logout($event,'inicio')">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- barra -->
+    <div *ngIf=!loggedIn>
+        <app-inicio *ngIf="componenteSeleccionado=='inicio'"></app-inicio>
+        <app-servicios *ngIf="componenteSeleccionado=='servicio'"></app-servicios>
+        <app-contacto *ngIf="componenteSeleccionado=='contacto'"></app-contacto>
+    </div>
+</div>
+<!-- contenedor -->
+<!-- fin navbar -->

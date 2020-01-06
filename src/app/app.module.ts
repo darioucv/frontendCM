@@ -6,7 +6,6 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { LoginComponent } from './components/login/login.component';
 import { AdministrativepanelComponent } from './admincomponents/administrativepanel/administrativepanel.component';
 import { HttpClientModule} from '@angular/common/http';
 import { JarwisService } from './services/jarwis.service';
@@ -22,12 +21,20 @@ import { OtrosComponent } from './admincomponents/edit/otros/otros.component';
 import { CategoriaComponentNew } from './admincomponents/new/categoria/categoria.component';
 import { ServicioComponentNew } from './admincomponents/new/servicio/servicio.component';
 import { TiposervicioComponentNew } from './admincomponents/new/tiposervicio/tiposervicio.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { IniciocuerpoComponent } from './components/iniciocuerpo/iniciocuerpo.component';
+import { ServiciosComponent } from './components/servicios/servicios.component';
+import { ServicioscuerpoComponent } from './components/servicioscuerpo/servicioscuerpo.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
+import { ContactocuerpoComponent } from './components/contactocuerpo/contactocuerpo.component';
+import { ErrorComponent } from './components/error/error.component';
+import { Iniciocuerpo2Component } from './components/iniciocuerpo2/iniciocuerpo2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginComponent,
     AdministrativepanelComponent,
     InformacionbasicaComponent,
     ServicioComponent,
@@ -37,6 +44,15 @@ import { TiposervicioComponentNew } from './admincomponents/new/tiposervicio/tip
     CategoriaComponentNew,
     ServicioComponentNew,
     TiposervicioComponentNew,
+    FooterComponent,
+    InicioComponent,
+    IniciocuerpoComponent,
+    ServiciosComponent,
+    ServicioscuerpoComponent,
+    ContactoComponent,
+    ContactocuerpoComponent,
+    ErrorComponent,
+    Iniciocuerpo2Component,
 
   ],
   imports: [

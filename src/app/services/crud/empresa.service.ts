@@ -9,5 +9,11 @@ export class EmpresaService {
   API_ENDPOINT:string;
   constructor(private rutaBackend:Globals,private httpClient: HttpClient) { 
     this.API_ENDPOINT = this.rutaBackend.getRutaBackend()
+  } 
+  get(){
+    return this.httpClient.get(this.API_ENDPOINT+'/empresa');
+  }
+  getRutaImg(){
+    return this.API_ENDPOINT+'/imageEmpresa/';
   }
 }

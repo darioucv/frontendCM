@@ -1,0 +1,6 @@
+<!-- un div horizontal, y dos verticales con for -->
+<div class="contenedor-imagenes-inicio">
+    <div *ngFor="let contenido of ArrayServicio; let i=index" class="contenedor-inicio-imagen">
+        <img *ngIf="i<6" src="{{rutaImagen+contenido.imagen}}" alt="imagenservicio">
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="contenedor-footer">
+    <div class="contenedor-grid">
+        <div>
+            <div>
+                <h3 class="no-margin">CIEZA METAL</h3>
+
+            </div>
+            <div class="contenedor-subtitulos">
+                <a href="">Nosotros</a>
+                <br>
+                <a href="">Servicios</a>
+                <br>
+                <a href="">Contacto</a>
+                <br>
+            </div>
+        </div>
+        <div>
+            <div>
+                <h3 class="no-margin">SERVICIOS </h3>
+
+            </div>
+            <div>
+                <a href="">Fabricaci&oacute;n</a><br>
+                <a href="">Mantenimiento</a><br>
+                <a href="">Acoplamiento</a><br>
+            </div>
+        </div>
+        <div>
+            <div>
+                <h3 class="no-margin">TRUJILLO</h3>
+            </div>
+
+            <div *ngFor="let contenido of ArrayEmpresaDatos">
+                <div *ngIf="contenido.datos_id==2">{{contenido.datoempresa}}</div>
+                <div *ngIf="contenido.datos_id==3">telf.{{contenido.datoempresa}}</div>
+                <div *ngIf="contenido.datos_id==4">Email: {{contenido.datoempresa}}</div>
+            </div>
+
+        </div>
+        <div class="contenedor-redes-login">
+            <div class="contenedorRedesSociales">
+                <img src="../../../assets/iconoface.png" alt="facebook" id="iconoface">
+            </div>
+            <button class="buttonLogin" (click)="AbrirLogin()">Login</button>
+        </div>
+    </div>
+</div>

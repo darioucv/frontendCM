@@ -3,7 +3,7 @@ import { infoBasica } from '../../../interfaces/informacionbasica';
 import { InformacionbasicaService } from '../../../services/crud/informacionbasica.service';
 import { empresadato } from 'src/app/interfaces/empresadatos';
 import { EmpresadatosService } from 'src/app/services/crud/empresadatos.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { SwalPortalTargets } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2';
 @Component({
@@ -26,7 +26,6 @@ export class InformacionbasicaComponent implements OnInit {
   };
   constructor(
     public readonly swalTargets: SwalPortalTargets,
-    private activateRoute:ActivatedRoute,
     private route:Router,
     private informacionbasica:InformacionbasicaService,
     private empresaDatos:EmpresadatosService,

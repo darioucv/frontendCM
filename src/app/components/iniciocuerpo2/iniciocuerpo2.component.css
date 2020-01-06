@@ -1,0 +1,23 @@
+.contenedor-imagenes-inicio {
+    margin-top: 2rem;
+}
+
+.contenedor-inicio-imagen {
+    font-size: 0
+}
+
+.contenedor-inicio-imagen img {
+    display: block;
+    margin: auto;
+}
+
+@media (min-width: 790px) {
+    .contenedor-imagenes-inicio {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .contenedor-inicio-imagen img {
+        height: 100%;
+        width: 100%;
+    }
+}
